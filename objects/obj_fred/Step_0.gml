@@ -1,5 +1,3 @@
-//if the player click on the character he have the control or not
-control_player();
 if (playable_character == true) { show_debug_message("pode me mover") }
 
 //if the player don´t have the control, the character won´t move
