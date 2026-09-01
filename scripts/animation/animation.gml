@@ -1,7 +1,13 @@
 function animation(var_anim_static, var_anim_moving, var_anim_vel){
 	/*
 	This function ask for the array of static, then the array of moving animation and
-	finally the speed of animation
+	finally the speed of animation.
+	
+	Quick note: In the array of moving and static animation, follow the order:
+		0 = Right stuff;
+		1 = Left stuff;
+		2 = up stuff;
+		3 = down stuff;
 	*/
 		switch (hsp)
 	{
