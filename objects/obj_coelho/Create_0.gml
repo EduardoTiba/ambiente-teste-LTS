@@ -86,6 +86,11 @@ state_machine = function(){
 			estado = "curando";
 		}
 		break
+		
+		case "curando":
+		{
+			
+		}
 	}
 /* Por que eu fiz esse código de máquina de estados? Bom... eu queria testar uma hipótese minha, que era:
 A consequência de uma única tecla, pode mudar dependendo do estado; E realmente, isso é verdade. Veja que a 

@@ -1,12 +1,63 @@
-hsp = 0;
-vsp = 0;
+estado = "sem comando";
+gravidade = 0.1;
+salto = 20;
+tempo_ar = 30;
+timer_ar = 0;
 
-speed_x = 2;
-speed_y = 2;
+//timer de segurar a barra de espaço
+timer_salto = 0;
+tempo_salto = 60;
 
-false_direction = 1;
-direc = 0;
+state_machine = function(){
+	
+	//sempre, independente do estado, roda esse código
+	y += gravidade;
+	
+	switch (estado)
+	{
+		case "sem comando":
+		{
+			gravidade = lerp(gravidade, 10, 0.005);
+		}
+		break
+		
+		case "salto":
+		{
+			//Se o player estiver segurado a barra de espaço, então o timer de salto inicia. Durante esse 
+			//timer, a gravidade se mantém 1, mas se der o timer ele roda o restante do código
+			if (keyboard_check(vk_space)) and (timer_salto > 0)
+			{
+				timer_salto = tempo_salto;
+				timer_salto--;
+				gravidade = -1.5;
+			}
+			else //caso não esteja segurando a barra de espaço...
+			{
+				//o timer de ficar no ar diminui
+				timer_ar--;
+				//o valor da gravidade faz o player ser jogado para cima
+				gravidade = -0.8;
+				
+				if (timer_ar <= 0)
+				{
+					estado = "sem comando" 
+					timer_ar = 0;
+				}
+			}
+			
+		}
+	}
+}
 
-//shooting stuff
-timer_charging = 0;
-tempo_charging = 30;
+control = function(){
+	
+	var _sobe, _atira;
+	_sobe	= keyboard_check_pressed(vk_space);
+	_atira	= mouse_check_button(mb_left);
+	
+	if (_sobe)
+	{
+		estado = "salto";
+		timer_ar = tempo_ar;
+	}
+}
