@@ -1,8 +1,14 @@
 function animation(var_anim_static, var_anim_moving, var_anim_vel, var_moving_h, var_moving_y, positive_vel, negative_vel){
 	/*
-	This function asks for the array of static, then the array of moving animation and
-	finally the speed of animation. 
-	
+	This function asks for:
+		1- Array of the static animations;
+		2- Array of moving animations;
+		3- The variable or the number of the fps to animate;
+		4- Variable that contains the value of horizon speed;
+		5- Variable that contains the value of vertical speed;
+		6- Value or variable of the positive speed of moving;
+		7- Value or variable of the negative speed of moving (just put a "-" signal in the variable of speed);
+		
 	Quick note: In the array of moving and static animation, follow the order:
 		0 = Right stuff;
 		1 = Left stuff;
