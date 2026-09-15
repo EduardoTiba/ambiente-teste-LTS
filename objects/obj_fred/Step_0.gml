@@ -7,4 +7,4 @@ if (playable_character == false) { exit }
 moving_character();
 
 //function for animation
-animation(anim_static, anim_moving, anim_vel);
+animation(anim_static, anim_moving, anim_vel, hsp, vsp, vel, -vel);

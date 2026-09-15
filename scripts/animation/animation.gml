@@ -1,7 +1,7 @@
-function animation(var_anim_static, var_anim_moving, var_anim_vel){
+function animation(var_anim_static, var_anim_moving, var_anim_vel, var_moving_h, var_moving_y, positive_vel, negative_vel){
 	/*
-	This function ask for the array of static, then the array of moving animation and
-	finally the speed of animation.
+	This function asks for the array of static, then the array of moving animation and
+	finally the speed of animation. 
 	
 	Quick note: In the array of moving and static animation, follow the order:
 		0 = Right stuff;
@@ -9,10 +9,10 @@ function animation(var_anim_static, var_anim_moving, var_anim_vel){
 		2 = up stuff;
 		3 = down stuff;
 	*/
-		switch (hsp)
+		switch (var_moving_h)
 	{
 		//caso esteja indo pra direita
-		case 1:
+		case positive_vel:
 		{
 			sprite_index = var_anim_moving[0];
 			image_speed = var_anim_vel;
@@ -20,7 +20,7 @@ function animation(var_anim_static, var_anim_moving, var_anim_vel){
 		break
 		
 		//esquerda
-		case -1:
+		case negative_vel:
 		{
 			sprite_index = var_anim_moving[1];	
 			image_speed = var_anim_vel;
@@ -37,10 +37,10 @@ function animation(var_anim_static, var_anim_moving, var_anim_vel){
 		
 	}
 	
-	switch (vsp)
+	switch (var_moving_y)
 	{
 		//baixo
-		case 1:
+		case positive_vel:
 		{
 			sprite_index = var_anim_moving[3];
 			image_speed = var_anim_vel;
@@ -48,7 +48,7 @@ function animation(var_anim_static, var_anim_moving, var_anim_vel){
 		break
 		
 		//cima
-		case -1:
+		case negative_vel:
 		{
 			sprite_index = var_anim_moving[2];
 			image_speed = var_anim_vel;

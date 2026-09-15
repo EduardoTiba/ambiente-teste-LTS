@@ -4,7 +4,7 @@ salto = 20;
 tempo_ar = 30;
 timer_ar = 0;
 
-//timer de segurar a barra de espaço
+//timer
 timer_salto = 0;
 tempo_salto = 60;
 
@@ -23,28 +23,16 @@ state_machine = function(){
 		
 		case "salto":
 		{
-			//Se o player estiver segurado a barra de espaço, então o timer de salto inicia. Durante esse 
-			//timer, a gravidade se mantém 1, mas se der o timer ele roda o restante do código
-			if (keyboard_check(vk_space)) and (timer_salto > 0)
-			{
-				timer_salto = tempo_salto;
-				timer_salto--;
-				gravidade = -1.5;
-			}
-			else //caso não esteja segurando a barra de espaço...
-			{
-				//o timer de ficar no ar diminui
-				timer_ar--;
-				//o valor da gravidade faz o player ser jogado para cima
-				gravidade = -0.8;
-				
-				if (timer_ar <= 0)
-				{
-					estado = "sem comando" 
-					timer_ar = 0;
-				}
-			}
+			//o timer de ficar no ar diminui
+			timer_ar--;
+			//o valor da gravidade faz o player ser jogado para cima
+			gravidade = -0.8;
 			
+			if (timer_ar <= 0)
+			{
+				estado = "sem comando" 
+				timer_ar = 0;
+			}
 		}
 	}
 }
