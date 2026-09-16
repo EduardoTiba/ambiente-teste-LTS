@@ -34,6 +34,7 @@ state_machine = function(){
 				timer_ar = 0;
 			}
 		}
+        break
 	}
 }
 
